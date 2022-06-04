@@ -1,0 +1,230 @@
+QUESTÃO 1: Escreva um programa para armazenar dados de veículos. Primeiramente,
+crie a classe Motor que contém NumCilindro (int) e Potenci(int)....
+
+//MAIN-----------------------------------------------
+import java.util.Scanner;
+  public class Main {
+    public static void main(String[] args){
+      CarroPasseio cp=new CarroPasseio();
+      Caminhao cm=new Caminhao();
+      
+      Scanner e=new Scanner(System.in);
+      
+        /*Recebendo dados Carro passeio*/
+        System.out.println("Informe os dados do Veiculo: Carro de Passeio");
+        System.out.println("Cilindro:");
+        cp.NumCilindro=e.nextInt();
+        System.out.println("Potencia:");
+        cp.Potenci=e.nextInt();
+        System.out.println("Peso em Kg:");
+        cp.Peso=e.nextInt();
+        System.out.println("Velocidade Maxima em km/h:");
+        cp.VelocMax=e.nextInt();
+        System.out.println("Preco R$:");
+        cp.Preco=e.nextFloat();
+        System.out.println("Modelo:");
+        cp.Modelo=e.next();
+        System.out.println("Cor:");
+        cp.Cor=e.next();
+        
+         /*Recebendo dados Caminhao*/
+        System.out.println("**************************************");
+        System.out.println("Informe os dados do Veiculo: Caminhao");
+        System.out.println("Cilindro:");
+        cm.NumCilindro=e.nextInt();
+        System.out.println("Potencia:");
+        cm.Potenci=e.nextInt();
+        System.out.println("Peso em Kg:");
+        cm.Peso=e.nextInt();
+        System.out.println("Velocidade Maxima em km/h:");
+        cm.VelocMax=e.nextInt();
+        System.out.println("Preco R$:");
+        cm.Preco=e.nextFloat();
+        System.out.println("Toneladas, Carga Maxima:");
+        cm.Toneladas=e.nextInt();
+        System.out.println("Altura Maxima:");
+        cm.AlturaMax=e.nextInt();
+        System.out.println("Comprimento:");
+        cm.Comprimento=e.nextInt();
+      
+        System.out.println("**************Exibindo Informacoes****************");
+        System.out.println("Veiculo: Carro de Passeio:");
+        cp.Exibir();
+        
+        System.out.println("******************************************");
+        System.out.println("Veiculo: Caminhao:");
+        cm.Exibir();     
+        
+    }//fim void main
+    
+}//fim Main
+
+//MOTOR----------------------------------------------
+ public class Motor {
+     int NumCilindro;
+     int Potenci;
+        
+        Motor(){
+         this.NumCilindro=0;
+         this.Potenci=0;
+        }//fim construtor
+        
+        Motor(int NumCilindro, int Potenci){
+         this.NumCilindro=0;
+         this.Potenci=0;
+        }//fim construtor
+    
+        public int getNumCilindro(){
+            return NumCilindro;
+        }//fim get
+        public void setNumCilindro(int NumCilindro){
+            this.NumCilindro=NumCilindro;
+        }//fim set
+        
+        public int getPotenci(){
+            return Potenci;
+        }//fim get
+        public void setPotenci(int Potenci){
+            this.Potenci=Potenci;
+        }//fim set
+        
+        public void Exibir(){
+            System.out.println("Numero Cilindro:"+this.NumCilindro);
+            System.out.println("Potencia:"+this.Potenci);
+        }
+    
+    }//fim class motor
+
+
+//VEICULO--------------------------------------------
+public class Veiculo extends Motor {
+     int Peso;
+     int VelocMax;
+     float Preco;
+     
+        Veiculo(){
+         this.Peso=Peso;
+         this.VelocMax=VelocMax;
+         this.Preco=Preco;
+        }//fim construtor
+        
+        Veiculo(int NumCilindro, int Potenci, int Peso, int VelocMax, float Preco){
+         super(NumCilindro,Potenci);
+         this.Peso=Peso;
+         this.VelocMax=VelocMax;
+         this.Preco=Preco;
+        }//fim construtor
+    
+        public int getPeso(){
+            return Peso;
+        }//fim get
+        public void setPeso(int Peso){
+            this.Peso=Peso;
+        }//fim set
+        
+        public int getVelocMax(){
+            return VelocMax;
+        }//fim get
+        public void setVelocMax(int VelocMax){
+            this.VelocMax=VelocMax;
+        }//fim set
+        
+        public float getPreco(){
+            return Preco;
+        }//fim get
+        public void setPreco(float Preco){
+            this.Preco=Preco;
+        }//fim set
+        
+        public void Exibir(){
+            super.Exibir();
+            System.out.println("Peso em Kg:"+this.Peso);
+            System.out.println("Velocidade Máxima em km/h:"+this.VelocMax);
+            System.out.println("Preco em R$:"+this.Preco);
+        }
+    
+    }//fim class veiculo
+
+
+//CARRO PASSEIO--------------------------------------
+public class CarroPasseio extends Veiculo {
+    public String Cor;
+    public String Modelo;
+      
+    CarroPasseio(){
+        this.Cor="";
+        this.Modelo="";
+    }//fim construtor
+    
+       CarroPasseio(int NumCilindro, int Potenci, int Peso, int VelocMax, float Preco, String Modelo, String Cor ){
+        super();
+        this.Cor=Cor;
+        this.Modelo=Modelo;
+    }//fim construtor
+    
+        public void setCor(String Cor){
+            this.Cor=Cor;
+        }
+        public String getCor(){
+            return Cor;
+        }
+        public void setModelo(String Modelo){
+            this.Modelo=Modelo;
+        }
+        public String getModelo(){
+            return Modelo;
+        }
+         public void Exibir(){
+            super.Exibir();
+            System.out.println("Modelo:"+this.Modelo);
+            System.out.println("Cor:"+this.Cor);
+        }
+      
+   }//fim class carro passeio
+
+
+
+//CAMINHAO-------------------------------------------
+public class Caminhao extends Veiculo {
+      public int Toneladas;
+      public int AlturaMax;
+      public int Comprimento;
+    
+        Caminhao(){
+            this.Toneladas=0;
+            this.AlturaMax=0;
+            this.Comprimento=0;
+        }//fim construtor
+        Caminhao(int NumCilindro, int Potenci, int Peso, int VelocMax, float Preco, int Toneladas, int AlturaMax, int Comprimento){
+            super();
+            this.AlturaMax=AlturaMax;
+            this.Comprimento=Comprimento;
+        }//fim construtor
+        
+            public void setToneladas(int Toneladas){
+                this.Toneladas=Toneladas;
+            }
+            public int getToneladas(){
+                return Toneladas;
+            }
+            public void setAlturaMax(int AlturaMax){
+                this.AlturaMax=AlturaMax;
+            }
+            public int getAlturaMax(){
+                return AlturaMax;
+            }
+            public void setComprimento(int Comprimento){
+                this.Comprimento=Comprimento;
+            }
+            public int getComprimento(){
+                return Comprimento;
+            }
+            
+                public void Exibir(){
+                super.Exibir();
+                System.out.println("Toneladas, Carga Maxima:"+this.Toneladas);
+                System.out.println("Altura Max:"+this.AlturaMax);
+                System.out.println("Comprimento:"+this.Comprimento);
+                }
+
+}//fim class Caminhao
